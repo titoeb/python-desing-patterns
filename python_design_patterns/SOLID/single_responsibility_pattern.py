@@ -26,6 +26,15 @@ class Journal:
     # -> Now if you create a `save`-method for all these classes it will be very hard to change
     # -> and maintain them constistently!
 
+# A better way to do this would be to put this functionality in a dedicated class!
+class PersistentManager:
+    @staticmethod
+    def save_to_file(journal, file_name):
+         with open(file_name, "w") as file_handler:
+            file_handler.write(str(journal))
+
+
+
 
 if __name__ == "__main__": 
     j = Journal()
@@ -33,5 +42,8 @@ if __name__ == "__main__":
     j.add_entry("I ate a bug" )
     print(f"Journal entries: \n{j}")
 
-
+    file_name=r'/tmp/test.txt'
+    PersistentManager.save_to_file(j, file_name)
+    with open(file_name, "r") as local_file:
+        print(local_file.read())
 

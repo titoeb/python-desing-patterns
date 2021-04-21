@@ -4,6 +4,8 @@ from copy import copy
 
 # In this script we explore using sub-builders with a fluent interface to jump from one
 # to another.
+
+
 class Person:
     def __init__(
         self,
@@ -37,14 +39,14 @@ class PersonBuilder:
 
     @property
     def works(self):
-        return PersonJobBuilder(copy(self.person))
+        return PersonJobBuilder(self.person)
 
     @property
     def lives(self):
-        return PersonAdressBuilder(copy(self.person))
+        return PersonAdressBuilder(self.person)
 
     def build(self) -> Person:
-        return copy(self.person)
+        return self.person
 
 
 class PersonJobBuilder(PersonBuilder):
@@ -53,15 +55,15 @@ class PersonJobBuilder(PersonBuilder):
 
     def at(self, company_name: str):
         self.person.company_name = company_name
-        return copy(self)
+        return self
 
     def as_a(self, position: str):
         self.person.position = position
-        return copy(self)
+        return self
 
     def earning(self, earning: int):
         self.person.earning = earning
-        return copy(self)
+        return self
 
 
 class PersonAdressBuilder(PersonBuilder):
@@ -70,15 +72,15 @@ class PersonAdressBuilder(PersonBuilder):
 
     def at(self, street_adress: str):
         self.person.street_adress = street_adress
-        return copy(self)
+        return self
 
     def in_city(self, city: str):
         self.person.city = city
-        return copy(self)
+        return self
 
     def with_postcode(self, postcode: str):
         self.person.postcode = postcode
-        return copy(self)
+        return self
 
 
 # Let's actually use our builder patterns!
@@ -95,6 +97,7 @@ person_engineer = (
     .build()
 )
 
+print(person_engineer)
 person_manager = (
     person_builder.lives.at("321 London Road")
     .in_city("Berlin")
@@ -105,6 +108,11 @@ person_manager = (
     .build()
 )
 
-print(person_engineer)
 print(person_manager)
 print(person_builder.person)
+
+# What I really don't like about this, is how the state of the person builder is handled.
+# It would be great if you could use the `person_builder` object more thant once, and that's
+# also what the name suggests to me. Unfortunately, as the internal `person` object will be stored,
+# this fluent interface has really confusing side effects as it does change the unterlying person builder
+# object.

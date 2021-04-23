@@ -1,0 +1,8 @@
+Berlin
+2
+Bonn
+10
+Cologne
+20
+Munique
+-1

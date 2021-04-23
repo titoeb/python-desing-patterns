@@ -1,10 +1,10 @@
+"""The abstract Factory
+The abstract factory is a pattern that is can be applied when the object creation becomes too convoluted.
+It pushes the object creation in a seperate class."""
+
 from __future__ import annotations
 from enum import Enum
 from abc import ABC
-
-# The abstract Factory
-# The abstract factory is a pattern that is can be applied when the object creation becomes too convoluted.
-# It pushes the object creation in a seperate class.
 
 # The abstract base class.
 class HotDrink(ABC):

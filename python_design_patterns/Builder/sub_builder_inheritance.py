@@ -1,12 +1,12 @@
+"""In `sub_builders.py` we saw how we can use sub builders with a fluent interface to
+conveniently create complex object.
+A potential issue what that our implementation violated the open-closed principle as the
+super class, the PersonBuilder, needed to be extenden everytime we add a new sub-builder.
+So let's see how we can solve the problem with inheritence."""
 from __future__ import annotations
 from typing import Optional
 
-# In `sub_builders.py` we saw how we can use sub builders with a fluent interface to
-# conveniently create complex object.
-# A potential issue what that our implementation violated the open-closed principle as the
-# super class, the PersonBuilder, needed to be extenden everytime we add a new sub-builder.
 
-# So let's see how we can solve the problem with inheritence.
 class Person:
     def __init__(
         self,

@@ -1,9 +1,8 @@
+"""In this script we explore using sub-builders with a fluent interface to jump from one
+to another."""
 from __future__ import annotations
 from typing import Optional
 from copy import copy
-
-# In this script we explore using sub-builders with a fluent interface to jump from one
-# to another.
 
 
 class Person:

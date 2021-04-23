@@ -1,10 +1,9 @@
+"""The Factory method
+The factory method is a pattern that is can be applied when the object creation becomes too convoluted.
+It pushes the object creation in a seperate (static) function."""
 from __future__ import annotations
 from enum import Enum
 from math import sin, cos
-
-# The Factory method
-# The factory method is a pattern that is can be applied when the object creation becomes too convoluted.
-# It pushes the object creation in a seperate (static) function.
 
 
 class Point:

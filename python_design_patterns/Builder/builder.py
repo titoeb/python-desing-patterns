@@ -1,9 +1,8 @@
+"""Builder pattern
+The builder pattern is concerned with building objects whenever that gets a bit more complicated.
+Instead of having a huge constructor with 10+ arguments the builder pattern provides an api for constructing
+ an object step-by-step."""
 from __future__ import annotations
-
-# Builder pattern
-# The builder pattern is concerned with building objects whenever that gets a bit more complicated.
-# Instead of having a huge constructor with 10+ arguments the builder pattern provides an api for constructing
-# an object step-by-step.
 
 # Let's look at building HTML objects as an example:
 text = "hello"
